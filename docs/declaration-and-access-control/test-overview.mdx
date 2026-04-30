@@ -1,0 +1,25 @@
+---
+id: test-overview
+title: "Test: Overview de Java"
+sidebar_position: 99
+---
+
+import QuizQuestion from '@site/src/components/QuizQuestion';
+
+# Test: Overview de Java
+
+<QuizQuestion
+  id="q1"
+  question="Which access modifier allows access from any class in any package?"
+  options={['private', 'protected', 'public', 'default']}
+  correct="C"
+  explanation="Public members are accessible from any class, assuming the class itself is visible."
+/>
+
+<QuizQuestion
+  id="q2"
+  question="Which access modifier allows access only within the same class?"
+  options={['public', 'private', 'protected', 'default']}
+  correct="B"
+  explanation="Private members are visible only inside the class where they are declared."
+/>
