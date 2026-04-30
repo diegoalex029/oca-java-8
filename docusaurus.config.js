@@ -13,11 +13,14 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  url: 'https://tu-usuario.github.io',
+  url: 'https://diegoalex029.github.io',
   baseUrl: '/',
 
-  organizationName: 'tu-usuario',
+  organizationName: 'diegoalex029',
   projectName: 'oca-java-8',
+
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -58,7 +61,7 @@ const config = {
             label: 'Contenido',
           },
           {
-            href: 'https://github.com/tu-usuario/oca-java-8',
+            href: 'https://github.com/diegoalex029/oca-java-8',
             label: 'GitHub',
             position: 'right',
           },
