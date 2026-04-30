@@ -14,7 +14,7 @@ const config = {
   },
 
   url: 'https://diegoalex029.github.io',
-  baseUrl: '/',
+  baseUrl: '/oca-java-8/',
 
   organizationName: 'diegoalex029',
   projectName: 'oca-java-8',
