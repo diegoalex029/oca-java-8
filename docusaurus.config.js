@@ -1,0 +1,83 @@
+
+import {themes as prismThemes} from 'prism-react-renderer';
+
+const { themes } = require('prism-react-renderer');
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: 'OCA Java 8',
+  tagline: 'Guía de estudio para la certificación Oracle Certified Associate Java SE 8',
+  favicon: 'img/favicon.ico',
+
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
+
+  url: 'https://tu-usuario.github.io',
+  baseUrl: '/',
+
+  organizationName: 'tu-usuario',
+  projectName: 'oca-java-8',
+
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      ({
+        docs: {
+          sidebarPath: './sidebars.js',
+          routeBasePath: '/', 
+        },
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    ({
+      navbar: {
+        title: 'OCA Java 8',
+        items: [
+          {
+            type: 'docSidebar',
+            sidebarId: 'ocaSidebar',
+            position: 'left',
+            label: 'Contenido',
+          },
+          {
+            href: 'https://github.com/tu-usuario/oca-java-8',
+            label: 'GitHub',
+            position: 'right',
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        copyright: `Copyright © ${new Date().getFullYear()} Bunnies. Built with Docusaurus.`,
+      },
+      prism: {
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['java'],
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        respectPrefersColorScheme: true,
+      },
+    }),
+};
+
+export default config;
