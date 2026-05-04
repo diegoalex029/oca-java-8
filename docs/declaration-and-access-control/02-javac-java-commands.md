@@ -12,13 +12,13 @@ Although using an IDE is helpful, we should also know how to compile and run Jav
 
 The `javac` command is used to invoke Java's compiler. It translates Java source code into bytecode, which is stored in `.class` files.
 
-![](/img/class2/javac.png)
+![](/img/declaration-and-access-control/class2/javac.png)
 
 ## Example
 
 We have a simple Java program in a file called `Hola.java`:
 
-![](/img/class2/javac_explanation.png)
+![](/img/declaration-and-access-control/class2/javac_explanation.png)
 
 ## Other javac options
 
@@ -45,12 +45,12 @@ The `java` command is used to invoke the Java Virtual Machine (JVM). It launches
 
 It's important to specify exactly one class file to execute, and the `java` command assumes you're talking about a `.class` file, so you don't specify the `.class` extension on the command line.
 
-![](/img/class2/Launching.png)
-![](/img/class2/Launching2.png)
+![](/img/declaration-and-access-control/class2/Launching.png)
+![](/img/declaration-and-access-control/class2/Launching2.png)
 
 ## What are args?
 
-![](/img/class2/argsExplanation.png)
+![](/img/declaration-and-access-control/class2/argsExplanation.png)
 
 - `args[0]` = "Hello"
 - `args[1]` = "Student"
@@ -127,13 +127,13 @@ All a Java `import` statement does is save you some typing. That's it.
 
 Java provides a huge collection of built-in classes. These classes are part of the Java API (Application Programming Interface). Java developers usually combine their own classes with classes written by other developers.
 
-![](/img/class2/JavaApi.png)
+![](/img/declaration-and-access-control/class2/JavaApi.png)
 
 ## Fully Qualified Names
 
 A fully qualified name includes the package name and the class name. Fully qualified names avoid conflicts between classes, ensuring that Java always knows exactly which class we are referring to.
 
-![](/img/class2/FullyName.png)
+![](/img/declaration-and-access-control/class2/FullyName.png)
 
 ## What Is an Import Statement?
 
@@ -205,7 +205,7 @@ Static imports allow us to use static members without writing the class name.
 
 Static members belong to the class, not to an object. They are accessed using the class name.
 
-![](/img/class2/StaticMembers.png)
+![](/img/declaration-and-access-control/class2/StaticMembers.png)
 
 ## Why Static Import Exists?
 

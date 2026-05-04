@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Java is an object-oriented programming language. It is based on a collection of objects, each with its own state and behavior, and these objects communicate with each other.
 
-![](/img/class1/object-oriented-programming.png)
+![](/img/declaration-and-access-control/class1/object-oriented-programming.png)
 
 # Useful Terms
 
@@ -23,38 +23,38 @@ Java is an object-oriented programming language. It is based on a collection of 
 
 It is a template that describes an object's states and behaviors.
 
-![](/img/class1/class.png)
+![](/img/declaration-and-access-control/class1/class.png)
 
 ## Object
 
 An object is an instance of a class with its own states and behaviors.
 
-![](/img/class1/object1.png)
-![](/img/class1/object2.png)
+![](/img/declaration-and-access-control/class1/object1.png)
+![](/img/declaration-and-access-control/class1/object2.png)
 
 ## State
 
 A state is the set of variables that describe an object's characteristics.
 
-![](/img/class1/state.png)
+![](/img/declaration-and-access-control/class1/state.png)
 
 ## Behavior
 
 Behavior is a set of methods that define how a class works and behaves.
 
-![](/img/class1/behavior.png)
+![](/img/declaration-and-access-control/class1/behavior.png)
 
 ## Inheritance
 
 Inheritance is a mechanism in which one class acquires the properties and methods of another class.
 
-![](/img/class1/inheritance.png)
+![](/img/declaration-and-access-control/class1/inheritance.png)
 
 ## Interface
 
 An interface is a contract that defines a set of methods that a class must implement.
 
-![](/img/class1/interface.png)
+![](/img/declaration-and-access-control/class1/interface.png)
 
 # Features and Benefits
 
@@ -102,7 +102,7 @@ Java is case-sensitive, so **"myDog"** and **"mydog"** would be considered diffe
 
 Keywords are predefined, reserved words used in Java programming that have special meanings to the compiler.
 
-![](/img/class1/key-words.png)
+![](/img/declaration-and-access-control/class1/key-words.png)
 
 ## Legal vs Illegal Identifiers
 
