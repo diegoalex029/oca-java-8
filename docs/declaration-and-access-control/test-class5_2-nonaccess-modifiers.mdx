@@ -1,0 +1,89 @@
+---
+id: test-class5_2-nonaccess-modifiers
+title: "Test: Nonaccess Modifiers"
+sidebar_position: 10
+---
+
+import QuizQuestion from '@site/src/components/QuizQuestion';
+
+# Test: Nonaccess Modifiers
+
+<QuizQuestion
+  id="q21"
+  question="Which nonaccess modifier indicates that a variable belongs to the class rather than to instances of the class?"
+  options={['final', 'static', 'abstract', 'synchronized']}
+  correct="B"
+  explanation="The static modifier indicates that the member belongs to the class rather than to instances."
+/>
+
+<QuizQuestion
+  id="q22"
+  question="Which modifier prevents a variable from being reassigned after it is initialized?"
+  options={['static', 'abstract', 'final', 'native']}
+  correct="C"
+  explanation="A final variable cannot be reassigned once it has been initialized."
+/>
+
+<QuizQuestion
+  id="q23"
+  question="Which modifier indicates that a method must be implemented by subclasses?"
+  options={['static', 'abstract', 'final', 'native']}
+  correct="B"
+  explanation="Abstract methods do not have a body and must be implemented by subclasses."
+/>
+
+<QuizQuestion
+  id="q24"
+  question="Which modifier prevents a method from being overridden in a subclass?"
+  options={['abstract', 'final', 'static', 'native']}
+  correct="B"
+  explanation="A final method cannot be overridden by subclasses."
+/>
+
+<QuizQuestion
+  id="q25"
+  question="Which modifier ensures that only one thread at a time can execute a method?"
+  options={['native', 'strictfp', 'synchronized', 'abstract']}
+  correct="C"
+  explanation="The synchronized modifier allows only one thread at a time to execute the method."
+/>
+
+<QuizQuestion
+  id="q26"
+  question="Which modifier indicates that a method is implemented in another language such as C or C++?"
+  options={['native', 'strictfp', 'final', 'abstract']}
+  correct="A"
+  explanation="Native methods are implemented in another programming language."
+/>
+
+<QuizQuestion
+  id="q27"
+  question="Which modifier ensures consistent floating-point calculations across different platforms?"
+  options={['final', 'strictfp', 'synchronized', 'static']}
+  correct="B"
+  explanation="The strictfp modifier ensures consistent floating-point calculations across platforms."
+/>
+
+<QuizQuestion
+  id="q28"
+  question="Which modifier indicates that a method belongs to the class rather than to instances?"
+  options={['abstract', 'static', 'final', 'synchronized']}
+  correct="B"
+  explanation="Static methods belong to the class and can be invoked without creating an object."
+/>
+
+<QuizQuestion
+  id="q29"
+  question="Which modifier can be applied to a class to prevent it from being subclassed?"
+  options={['abstract', 'static', 'final', 'strictfp']}
+  correct="C"
+  explanation="A final class cannot be extended."
+/>
+
+<QuizQuestion
+  id="q30"
+  question="Which combination is NOT allowed for a method?"
+  options={['abstract and public', 'abstract and final', 'static and public', 'synchronized and public']}
+  correct="B"
+  explanation="A method cannot be both abstract and final because abstract methods must be overridden and final methods cannot be overridden."
+/>

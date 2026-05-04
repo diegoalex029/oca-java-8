@@ -1,0 +1,169 @@
+---
+id: test-class6-chapter1
+title: "Test: Chapter 1 Review"
+sidebar_position: 11
+---
+
+import QuizQuestion from '@site/src/components/QuizQuestion';
+
+# Test: Chapter 1 Review
+
+<QuizQuestion
+  id="c6_1"
+  question="Which of the following is a valid identifier?"
+  options={['2value', '_myVar', 'new', 'my-var']}
+  correct="B"
+  explanation="Identifiers can begin with a letter, underscore, or currency character."
+/>
+
+<QuizQuestion
+  id="c6_2"
+  question="Which is the correct signature for a main method with special powers in Java?"
+  options={['public void main(String[] args)', 'static void main(String[] args)', 'public static void main(String[] args)', 'public static main(String[] args)']}
+  correct="C"
+  explanation="Only public static void main(String[] args) has special powers."
+/>
+
+<QuizQuestion
+  id="c6_3"
+  question="A source file can have how many public classes?"
+  options={['Unlimited', 'Two', 'One', 'Zero']}
+  correct="C"
+  explanation="A source file can have only one public class."
+/>
+
+<QuizQuestion
+  id="c6_4"
+  question="Which access levels can a top-level class have?"
+  options={['public, protected, default, private', 'public and default only', 'public and private only', 'public, protected, and default']}
+  correct="B"
+  explanation="Top-level classes can only have public or default access."
+/>
+
+<QuizQuestion
+  id="c6_5"
+  question="Which combination of class modifiers is NOT legal?"
+  options={['public abstract', 'public final', 'final abstract', 'public strictfp']}
+  correct="C"
+  explanation="A class cannot be both final and abstract."
+/>
+
+<QuizQuestion
+  id="c6_6"
+  question="Which statement about abstract methods is true?"
+  options={['They must be private', 'They can be final', 'They end in a semicolon with no curly braces', 'They must be implemented in the same class']}
+  correct="C"
+  explanation="Abstract methods end in a semicolon with no curly braces."
+/>
+
+<QuizQuestion
+  id="c6_7"
+  question="Which statement about interfaces is true?"
+  options={['Interfaces can extend a class', 'Interface methods are by default private', 'A class can implement many interfaces', 'Interface constants are not static']}
+  correct="C"
+  explanation="A class can implement many interfaces even though it can only extend one class."
+/>
+
+<QuizQuestion
+  id="c6_8"
+  question="Which modifier is the only one available to local variables?"
+  options={['static', 'transient', 'final', 'volatile']}
+  correct="C"
+  explanation="final is the only modifier available to local variables."
+/>
+
+<QuizQuestion
+  id="c6_9"
+  question="Which statement about enums is true?"
+  options={['An enum can be declared inside a method', 'Enum constructors can be invoked directly in code', 'An enum constant type is the enum type itself', 'An enum declared outside a class can be marked private']}
+  correct="C"
+  explanation="An enum constant type is the enum type, not String or int."
+/>
+
+<QuizQuestion
+  id="c6_10"
+  question="Which statement about static methods is true?"
+  options={['Static methods have direct access to nonstatic members', 'Static methods require an instance to be called', 'Static methods do not have direct access to nonstatic members', 'Static methods cannot be marked final']}
+  correct="C"
+  explanation="Static methods do not have direct access to nonstatic members."
+/>
+
+<QuizQuestion
+  id="c6_11"
+  question="Which statement about protected access is correct?"
+  options={['Protected members can only be accessed within the same class', 'Protected members can be accessed by classes in the same package plus subclasses', 'Protected access is the same as default access', 'Protected members cannot be inherited']}
+  correct="B"
+  explanation="Protected = package + subclasses (kids)."
+/>
+
+<QuizQuestion
+  id="c6_12"
+  question="Which statement about constructors is true?"
+  options={['Constructors must be public', 'Constructors can have a return type', 'Constructors can use any access modifier including private', 'Constructors cannot have arguments']}
+  correct="C"
+  explanation="Constructors can use any access modifier, even private."
+/>
+
+<QuizQuestion
+  id="c6_13"
+  question="Which statement about var-arg methods is true?"
+  options={['A method can have multiple var-arg parameters', 'The var-arg parameter must come last', 'Var-arg parameters use the syntax type: name', 'Var-arg methods cannot have normal parameters']}
+  correct="B"
+  explanation="In methods with normal parameters and a var-arg, the var-arg must come last."
+/>
+
+<QuizQuestion
+  id="c6_14"
+  question="Which statement about final variables is true?"
+  options={['A final object cannot be changed internally', 'Final variables must be initialized before the constructor completes', 'Final variables can be reassigned once', 'Final reference variables can refer to different objects']}
+  correct="B"
+  explanation="Final variables must be initialized before the constructor completes."
+/>
+
+<QuizQuestion
+  id="c6_15"
+  question="Which statement about arrays is true?"
+  options={['Arrays are primitives', 'The size of an array can be included in the declaration', 'The array itself is always an object', 'Arrays can only hold primitives']}
+  correct="C"
+  explanation="Arrays can hold primitives or objects, but the array itself is always an object."
+/>
+
+<QuizQuestion
+  id="c6_16"
+  question="Which statement about package and import statements is true?"
+  options={['A file can have multiple package statements', 'Import statements must come before the package statement', 'The package statement must be the first noncomment line in the file', 'Package statements apply only to the first class in the file']}
+  correct="C"
+  explanation="The package statement must be the first noncomment line in a source file."
+/>
+
+<QuizQuestion
+  id="c6_17"
+  question="Which statement about abstract classes is true?"
+  options={['An abstract class cannot have nonabstract methods', 'An abstract class can be instantiated directly', 'A single abstract method forces the whole class to be abstract', 'An abstract class must implement all interface methods']}
+  correct="C"
+  explanation="A single abstract method in a class means the whole class must be abstract."
+/>
+
+<QuizQuestion
+  id="c6_18"
+  question="Which statement about instance variables is true?"
+  options={['Instance variables can be marked abstract', 'Instance variables can be marked synchronized', 'Instance variables can be marked transient', 'Instance variables can be marked native']}
+  correct="C"
+  explanation="Instance variables can be marked final or transient."
+/>
+
+<QuizQuestion
+  id="c6_19"
+  question="Which statement about private members is true?"
+  options={['Private members can be accessed by subclasses', 'Private members can be inherited', 'Private members can only be accessed by code in the same class', 'Private members are visible to all classes in the same package']}
+  correct="C"
+  explanation="Private members can only be accessed by code in the same class."
+/>
+
+<QuizQuestion
+  id="c6_20"
+  question="Which statement about interface constants is true?"
+  options={['Interface constants are private by default', 'Interface constants must be explicitly declared as static', 'Interface constants are always implicitly public, static, and final', 'Interface constants can be reassigned by implementing classes']}
+  correct="C"
+  explanation="Interface constants are always implicitly public, static, and final."
+/>

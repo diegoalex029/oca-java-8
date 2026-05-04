@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
 
-/**
- * @param {Object} props
- * @param {string} props.id - ID único de la pregunta (ej: "q1")
- * @param {string} props.question - Texto de la pregunta
- * @param {string[]} props.options - Array de opciones
- * @param {string} props.correct - Letra correcta: "A", "B", "C" o "D"
- * @param {string} props.explanation - Explicación al verificar
- * @param {React.ReactNode} [props.codeBlock] - Código opcional
- */
-export default function QuizQuestion({ id, question, options, correct, explanation, codeBlock }) {
-  const [selected, setSelected] = useState(null);
+export default function QuizQuestion({ id, question, options, correct, explanation, codeBlock, multiple }) {
+  const [selected, setSelected] = useState([]);
   const [result, setResult] = useState(null);
 
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  const correctAnswers = correct.split(',').map(c => c.trim());
+
+  function toggleOption(letter) {
+    if (result !== null) return;
+    if (multiple) {
+      setSelected(prev =>
+        prev.includes(letter) ? prev.filter(l => l !== letter) : [...prev, letter]
+      );
+    } else {
+      setSelected([letter]);
+    }
+    setResult(null);
+  }
 
   function checkAnswer() {
-    if (!selected) return;
-    setResult(selected === correct ? 'correct' : 'incorrect');
+    if (selected.length === 0) return;
+    const sortedSelected = [...selected].sort().join(',');
+    const sortedCorrect = [...correctAnswers].sort().join(',');
+    setResult(sortedSelected === sortedCorrect ? 'correct' : 'incorrect');
   }
 
   function reset() {
-    setSelected(null);
+    setSelected([]);
     setResult(null);
   }
 
   return (
     <div className="quiz-question">
       <p><strong>❓ {question}</strong></p>
+      {multiple && <p style={{ fontSize: '0.85em', color: 'var(--ifm-color-primary)' }}>Selecciona todas las que apliquen</p>}
 
       {codeBlock && <div style={{ margin: '1rem 0' }}>{codeBlock}</div>}
 
@@ -36,11 +43,11 @@ export default function QuizQuestion({ id, question, options, correct, explanati
           <li key={i}>
             <label>
               <input
-                type="radio"
+                type={multiple ? 'checkbox' : 'radio'}
                 name={id}
                 value={letters[i]}
-                checked={selected === letters[i]}
-                onChange={() => { setSelected(letters[i]); setResult(null); }}
+                checked={selected.includes(letters[i])}
+                onChange={() => toggleOption(letters[i])}
                 disabled={result !== null}
               />
               {' '}<strong>{letters[i]}.</strong> <code>{option}</code>
@@ -50,7 +57,7 @@ export default function QuizQuestion({ id, question, options, correct, explanati
       </ul>
 
       {result === null ? (
-        <button className="quiz-check-btn" onClick={checkAnswer} disabled={!selected}>
+        <button className="quiz-check-btn" onClick={checkAnswer} disabled={selected.length === 0}>
           Verificar respuesta
         </button>
       ) : (

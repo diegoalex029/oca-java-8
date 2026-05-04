@@ -1,0 +1,312 @@
+---
+id: test-class5_1-access-modifiers
+title: "Test: Access Modifiers"
+sidebar_position: 9
+---
+
+import QuizQuestion from '@site/src/components/QuizQuestion';
+
+# Test: Access Modifiers
+
+<QuizQuestion
+  id="q1"
+  question="Which access modifier allows access from any class in any package?"
+  options={['private', 'protected', 'public', 'default']}
+  correct="C"
+  explanation="Public members are accessible from any class, assuming the class itself is visible."
+/>
+
+<QuizQuestion
+  id="q2"
+  question="Which access modifier allows access only within the same class?"
+  options={['public', 'private', 'protected', 'default']}
+  correct="B"
+  explanation="Private members are visible only inside the class where they are declared."
+/>
+
+<QuizQuestion
+  id="q3"
+  question="Which access modifier allows access only within the same package?"
+  options={['protected', 'public', 'default', 'private']}
+  correct="C"
+  explanation="Default access means the member is accessible only within the same package."
+/>
+
+<QuizQuestion
+  id="q4"
+  question="Which modifier allows access within the same package and subclasses in other packages?"
+  options={['private', 'protected', 'default', 'public']}
+  correct="B"
+  explanation="Protected members are accessible within the same package and also in subclasses from other packages."
+/>
+
+<QuizQuestion
+  id="q5"
+  question="Which access modifiers can be used with top-level classes?"
+  options={['public and protected', 'public and private', 'public and default', 'private and default']}
+  correct="C"
+  explanation="Top-level classes can only be declared public or with default access."
+/>
+
+<QuizQuestion
+  id="q6"
+  question="If a class is not visible to another class, what happens to its members?"
+  options={['Only public members are accessible', 'Only protected members are accessible', 'No members are accessible', 'Only static members are accessible']}
+  correct="C"
+  explanation="If the class itself is not visible, none of its members can be accessed."
+/>
+
+<QuizQuestion
+  id="q7"
+  question="Which statement about protected access is correct?"
+  options={['It allows access only inside the same class', 'It allows access only inside the same package', 'It allows access within the same package and in subclasses', 'It allows access everywhere']}
+  correct="C"
+  explanation="Protected allows access within the same package and also in subclasses."
+/>
+
+<QuizQuestion
+  id="q8"
+  question="What is the access level when no modifier is specified?"
+  options={['private', 'protected', 'default', 'public']}
+  correct="C"
+  explanation="Default access occurs when no modifier is specified."
+/>
+
+<QuizQuestion
+  id="q9"
+  question="Which modifiers can be used with methods and variables?"
+  options={['public, protected, default, private', 'public, protected, private', 'default, private', 'public only']}
+  correct="A"
+  explanation="Methods and variables can use all four access levels."
+/>
+
+<QuizQuestion
+  id="q10"
+  question="If a superclass member is declared public, what happens in a subclass?"
+  options={['It is inherited only in the same package', 'It is inherited only if the subclass is public', 'It is inherited regardless of the package', 'It is never inherited']}
+  correct="C"
+  explanation="Public members are inherited regardless of the package."
+/>
+
+<QuizQuestion
+  id="q11"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`public class Test {
+    private int age = 5;
+
+    public static void main(String[] args) {
+        Test t = new Test();
+        System.out.println(t.age);
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails', '0', '5', 'null']}
+  correct="C"
+  explanation="The private variable age is accessible inside the same class, so the program prints 5."
+/>
+
+<QuizQuestion
+  id="q12"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`class Animal {
+    private void eat() {
+        System.out.println("Animal eats");
+    }
+}
+
+class Dog extends Animal {
+    public void bark() {
+        eat();
+    }
+}`}</code></pre>
+  }
+  options={['Animal eats', 'Compilation fails', 'Dog barks', 'Runtime exception']}
+  correct="B"
+  explanation="A private method is not inherited, so Dog cannot access eat()."
+/>
+
+<QuizQuestion
+  id="q13"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`package animals;
+
+public class Animal {
+    public void eat() {
+        System.out.println("eat");
+    }
+}
+
+package zoo;
+
+import animals.Animal;
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.eat();
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails because the packages are different', 'eat', 'null', 'Runtime exception']}
+  correct="B"
+  explanation="Both the class and the method are public, so they are accessible from another package."
+/>
+
+<QuizQuestion
+  id="q14"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`package animals;
+
+class Animal {
+    public void eat() {
+        System.out.println("eat");
+    }
+}
+
+package zoo;
+
+import animals.Animal;
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.eat();
+    }
+}`}</code></pre>
+  }
+  options={['eat', 'Compilation fails because eat() is not visible', 'Compilation fails because Animal is not visible', 'Runtime exception']}
+  correct="C"
+  explanation="The class Animal has default access, so it is not visible outside its package."
+/>
+
+<QuizQuestion
+  id="q15"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`class Animal {
+    protected void eat() {
+        System.out.println("eat");
+    }
+}
+
+class Dog extends Animal {
+    public void bark() {
+        eat();
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails', 'eat', 'bark', 'Runtime exception']}
+  correct="B"
+  explanation="A protected member is inherited by a subclass, so Dog can call eat()."
+/>
+
+<QuizQuestion
+  id="q16"
+  question="Which line causes a compilation error?"
+  codeBlock={
+    <pre><code className="language-java">{`public class Test {
+    private int age = 10;
+
+    public void printAge() {
+        System.out.println(age);
+        System.out.println(this.age);
+    }
+}`}</code></pre>
+  }
+  options={['Only line with age', 'Only line with this.age', 'Both lines', 'No line causes an error']}
+  correct="D"
+  explanation="Both age and this.age refer to the same instance variable inside the same class."
+/>
+
+<QuizQuestion
+  id="q17"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`class Animal {
+    void eat() {
+        System.out.println("eat");
+    }
+}
+
+class Dog extends Animal {
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails because eat() is not public', 'eat', 'null', 'Runtime exception']}
+  correct="B"
+  explanation="The method has default access and all classes are in the same package, so Dog inherits and can call eat()."
+/>
+
+<QuizQuestion
+  id="q18"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`package animals;
+
+public class Animal {
+    protected void eat() {
+        System.out.println("eat");
+    }
+}
+
+package zoo;
+
+import animals.Animal;
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.eat();
+    }
+}`}</code></pre>
+  }
+  options={['eat', 'Compilation fails', 'Runtime exception', 'null']}
+  correct="B"
+  explanation="Protected members are not accessible through a superclass reference from a non-subclass in another package."
+/>
+
+<QuizQuestion
+  id="q19"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`class Animal {
+    public int age = 3;
+}
+
+class Dog extends Animal {
+    public void printAge() {
+        System.out.println(age);
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails', '0', '3', 'null']}
+  correct="C"
+  explanation="A public variable is inherited by the subclass, so age is directly accessible in Dog."
+/>
+
+<QuizQuestion
+  id="q20"
+  question="What is the result of running the following code?"
+  codeBlock={
+    <pre><code className="language-java">{`public class Test {
+    private static int count = 1;
+
+    public static void main(String[] args) {
+        System.out.println(count);
+    }
+}`}</code></pre>
+  }
+  options={['Compilation fails because count is private', '1', '0', 'Runtime exception']}
+  correct="B"
+  explanation="Private members are accessible inside the same class, including from main()."
+/>

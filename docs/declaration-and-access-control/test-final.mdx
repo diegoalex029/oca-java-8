@@ -1,0 +1,277 @@
+---
+id: test-final
+title: "Test: Final Test"
+sidebar_position: 12
+---
+
+import QuizQuestion from '@site/src/components/QuizQuestion';
+
+# Final Test
+
+<QuizQuestion
+  id="ft_1"
+  multiple={true}
+  question='Which are true about "X extends Y"? (Choose all that apply.)'
+  options={[
+    '"X extends Y" is correct if and only if X is a class and Y is an interface',
+    '"X extends Y" is correct if and only if X is an interface and Y is a class',
+    '"X extends Y" is correct if X and Y are either both classes or both interfaces',
+    '"X extends Y" is correct for all combinations of X and Y being classes and/or interfaces',
+  ]}
+  correct="C"
+  explanation="The extends keyword is used between two classes or between two interfaces. A class uses implements for an interface."
+/>
+
+<QuizQuestion
+  id="ft_2"
+  multiple={true}
+  question="Which are true about the Shuttle/Rocket code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`class Rocket {
+    private void blastOff() { System.out.print("bang "); }
+}
+public class Shuttle extends Rocket {
+    public static void main(String[] args) {
+        new Shuttle().go();
+    }
+    void go() {
+        blastOff();
+        // Rocket.blastOff(); // line A
+    }
+    private void blastOff() { System.out.print("sh-bang "); }
+}`}</code></pre>
+  }
+  options={[
+    'As the code stands, the output is bang',
+    'As the code stands, the output is sh-bang',
+    'As the code stands, compilation fails',
+    'If line A is uncommented, the output is bang bang',
+    'If line A is uncommented, the output is sh-bang bang',
+    'If line A is uncommented, compilation fails',
+  ]}
+  correct="B,F"
+  explanation="Shuttle defines its own blastOff(), so sh-bang is printed. Rocket.blastOff() is private and cannot be called from outside Rocket, so uncommenting line A causes a compilation error."
+/>
+
+<QuizQuestion
+  id="ft_3"
+  question="Given the command line: java _ - A . What is the result?"
+  codeBlock={
+    <pre><code className="language-java">{`import static java.lang.System.*;
+class _ {
+    static public void main(String[] __A_V_) {
+        String $ = "";
+        for(int x=0; ++x < __A_V_.length; )
+            $ += __A_V_[x];
+        out.println($);
+    }
+}`}</code></pre>
+  }
+  options={['-A', 'A.', '-A.', '_A.', '_-A.', 'Compilation fails', 'An exception is thrown at runtime']}
+  correct="B"
+  explanation='The loop starts with x=0, then pre-increments to x=1. args[0]="-", args[1]="A", args[2]=".". The loop runs for x=1 and x=2, concatenating args[1]+args[2] = "A.".'
+/>
+
+<QuizQuestion
+  id="ft_4"
+  question="What is the result of the enum code?"
+  codeBlock={
+    <pre><code className="language-java">{`enum Animals {
+    DOG("woof"), CAT("meow"), FISH("burble");
+    String sound;
+    Animals(String s) { sound = s; }
+}
+class TestEnum {
+    static Animals a;
+    public static void main(String[] args) {
+        System.out.println(a.DOG.sound + " " + a.FISH.sound);
+    }
+}`}</code></pre>
+  }
+  options={['woof burble', 'Multiple compilation errors', 'Compilation fails due to an error on line 2', 'Compilation fails due to an error on line 3', 'Compilation fails due to an error on line 4', 'Compilation fails due to an error on line 9']}
+  correct="A"
+  explanation="Although a is null, enum constants are static members so a.DOG and a.FISH are valid. The output is woof burble."
+/>
+
+<QuizQuestion
+  id="ft_5"
+  multiple={true}
+  question="What is the result of the Foo/Baz code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`package pkgA;
+public class Foo {
+    int a = 5;
+    protected int b = 6;
+    public int c = 7;
+}
+
+package pkgB;
+import pkgA.*;
+public class Baz {
+    public static void main(String[] args) {
+        Foo f = new Foo();
+        System.out.print(" " + f.a);
+        System.out.print(" " + f.b);
+        System.out.println(" " + f.c);
+    }
+}`}</code></pre>
+  }
+  options={['5 6 7', '5 followed by an exception', 'Compilation fails with an error on line 7', 'Compilation fails with an error on line 8', 'Compilation fails with an error on line 9', 'Compilation fails with an error on line 10']}
+  correct="D,E"
+  explanation="Baz is in pkgB and does not extend Foo. f.a has default access so it fails from pkgB (line 8). f.b is protected but Baz is not a subclass so it also fails (line 9). f.c is public and accessible."
+/>
+
+<QuizQuestion
+  id="ft_6"
+  multiple={true}
+  question="What is the result of the Electronic/Phone/Device code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`public class Electronic implements Device {
+    public void doIt() { }
+}
+
+abstract class Phone1 extends Electronic { }
+
+abstract class Phone2 extends Electronic {
+    public void doIt(int x) { }
+}
+
+class Phone3 extends Electronic implements Device {
+    public void doStuff() { }
+}
+
+interface Device { public void doIt(); }`}</code></pre>
+  }
+  options={['Compilation succeeds', 'Compilation fails with an error on line 1', 'Compilation fails with an error on line 3', 'Compilation fails with an error on line 5', 'Compilation fails with an error on line 7', 'Compilation fails with an error on line 9']}
+  correct="A"
+  explanation="All classes compile. Electronic implements doIt(). Phone1 and Phone2 are abstract so they need not implement doIt(). Phone3 inherits doIt() from Electronic."
+/>
+
+<QuizQuestion
+  id="ft_7"
+  multiple={true}
+  question="What is the result of the Announce code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`class Announce {
+    public static void main(String[] args) {
+        for(int __x = 0; __x < 3; __x++) ;
+        int #lb = 7;
+        long [] x [5];
+        Boolean []ba[];
+    }
+}`}</code></pre>
+  }
+  options={['Compilation succeeds', 'Compilation fails with an error on line 6', 'Compilation fails with an error on line 7', 'Compilation fails with an error on line 8', 'Compilation fails with an error on line 9']}
+  correct="C,D"
+  explanation="#lb is not a valid identifier (# is not allowed). long [] x [5] is invalid because array sizes cannot be specified in declarations. Boolean []ba[] is valid as a 2D array declaration."
+/>
+
+<QuizQuestion
+  id="ft_8"
+  multiple={true}
+  question="What is the result of the TestDays code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`public class TestDays {
+    public enum Days { MON, TUE, WED };
+    public static void main(String[] args) {
+        for(Days d : Days.values())
+            ;
+        Days [] d2 = Days.values();
+        System.out.println(d2[2]);
+    }
+}`}</code></pre>
+  }
+  options={['TUE', 'WED', 'The output is unpredictable', 'Compilation fails due to an error on line 4', 'Compilation fails due to an error on line 6', 'Compilation fails due to an error on line 8', 'Compilation fails due to an error on line 9']}
+  correct="B"
+  explanation="Days.values() returns {MON, TUE, WED}. d2[2] is WED (index 2). All syntax is valid."
+/>
+
+<QuizQuestion
+  id="ft_9"
+  question="What is the result of the Frodo/Hobbit code?"
+  codeBlock={
+    <pre><code className="language-java">{`public class Frodo extends Hobbit {
+    public static void main(String[] args) {
+        int myGold = 7;
+        System.out.println(countGold(myGold, 6));
+    }
+}
+class Hobbit {
+    int countGold(int x, int y) { return x + y; }
+}`}</code></pre>
+  }
+  options={['13', 'Compilation fails due to multiple errors', 'Compilation fails due to an error on line 6', 'Compilation fails due to an error on line 7', 'Compilation fails due to an error on line 11']}
+  correct="D"
+  explanation="countGold() is an instance method in Hobbit, but it is called without an instance from a static context (main). This causes a compilation error on line 7."
+/>
+
+<QuizQuestion
+  id="ft_10"
+  multiple={true}
+  question="Which are true about the Tablet/Electronic/Gadget code? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`interface Gadget {
+    void doStuff();
+}
+abstract class Electronic {
+    void getPower() { System.out.print("plug in "); }
+}
+public class Tablet extends Electronic implements Gadget {
+    void doStuff() { System.out.print("show book "); }
+    public static void main(String[] args) {
+        new Tablet().getPower();
+        new Tablet().doStuff();
+    }
+}`}</code></pre>
+  }
+  options={['The class Tablet will NOT compile', 'The interface Gadget will NOT compile', 'The output will be plug in show book', 'The abstract class Electronic will NOT compile', 'The class Tablet CANNOT both extend and implement']}
+  correct="A"
+  explanation="Tablet implements Gadget which requires doStuff() to be public. Tablet declares doStuff() with package-private access — weaker access modifier — causing a compilation error."
+/>
+
+<QuizQuestion
+  id="ft_11"
+  multiple={true}
+  question="Which, inserted independently at line 1, compiles? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`// insert code here
+class StatTest {
+    public static void main(String[] args) {
+        System.out.println(Integer.MAX_VALUE);
+    }
+}`}</code></pre>
+  }
+  options={['import static java.lang;', 'import static java.lang.Integer;', 'import static java.lang.Integer.*;', 'static import java.lang.Integer.*;', 'import static java.lang.Integer.MAX_VALUE;', 'None of the above statements are valid import syntax']}
+  correct="C,E"
+  explanation="import static java.lang.Integer.* imports all static members. import static java.lang.Integer.MAX_VALUE imports the specific constant. Option B is invalid (no static member specified). Option D uses wrong syntax."
+/>
+
+<QuizQuestion
+  id="ft_12"
+  multiple={true}
+  question="Which lines of code inserted in the interface will compile? (Choose all that apply.)"
+  codeBlock={
+    <pre><code className="language-java">{`interface MyInterface {
+    // insert code here
+}`}</code></pre>
+  }
+  options={['public static m1() {;}', 'default void m2() {;}', 'abstract int m3();', 'final short m4() {return 5;}', 'default long m5();', 'static void m6() {;}']}
+  correct="B,C,F"
+  explanation="default methods need a body (B ok). abstract methods end with semicolon (C ok). static interface methods need a body (F ok). A is missing return type. D is invalid (final not allowed in interfaces). E is invalid (default methods must have a body)."
+/>
+
+<QuizQuestion
+  id="ft_13"
+  multiple={true}
+  question="Which are true about Java? (Choose all that apply.)"
+  options={[
+    'Java is a dynamically typed programming language',
+    'Java provides fine-grained control of memory through the use of pointers',
+    'Java provides programmers the ability to create objects that are well encapsulated',
+    'Java provides programmers the ability to send Java objects from one machine to another',
+    'Java is an implementation of the ECMA standard',
+    "Java's encapsulation capabilities provide its primary security mechanism",
+  ]}
+  correct="C,D"
+  explanation="Java is statically typed (not A). Java does not expose pointers (not B). Java supports encapsulation via access modifiers (C true). Java supports serialization to send objects across machines (D true). ECMA standard applies to JavaScript (not E). Security in Java goes beyond encapsulation (not F)."
+/>
